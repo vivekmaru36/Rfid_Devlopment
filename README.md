@@ -1,3 +1,27 @@
+# Instructions : 
+
+1) npm install
+2) npm install --save-dev @babel/plugin-proposal-private-property-in-object
+3) npm install axios
+4) npm start
+
+to go to dashboard just use http://localhost:3000/dashboard
+
+if you want to go there using backend use this on your pc and run it simulatenously 
+
+--> https://github.com/vivekmaru36/Crud_operations_with_web_api
+--> https://www.youtube.com/playlist?list=PLwxiRZdZ4bZkldxU51cwo5B1xuN9hxvCM
+
+
+
+
+ 
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
