@@ -6,6 +6,8 @@ import Signup from './Signup';
 import Registration from './Registration';
 import Navbar from './Navbar';
 import './App.css';
+import Dashboard from './Dashboard/Dashboard';
+import './Dashboard/Dashboard.css'; 
 
 const App = () => {
   return (
@@ -18,6 +20,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/registration" element={<Registration />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
       </div>
