@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Import Axios
 
+
 const Registration = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -9,6 +10,7 @@ const Registration = () => {
   const [currentYear, setCurrentYear] = useState('');
   const [finalYear, setFinalYear] = useState('');
   const [numericRFID, setNumericRFID] = useState('');
+  const [password,setPassword]=useState('')  // new state for password
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -18,15 +20,13 @@ const Registration = () => {
     console.log('Current Year:', currentYear);
     console.log('Final Year:', finalYear);
     console.log('Numeric RFID:', numericRFID);
+    console.log('Password :', password);
     // Implement your registration logic here
 
     // calling submit form
     submitForm();
 
     // logic to give validation for rfid 
-
-    
-
   };
 
   const navigate = useNavigate(); // this helps in submiting to dashboard
@@ -44,6 +44,7 @@ const Registration = () => {
       current_Year: currentYear,
       final_Year: finalYear,
       rfidno: numericRFID,
+      password:password,
     };
 
     // Use Axios to send the form data
@@ -130,6 +131,10 @@ const Registration = () => {
             onChange={(e) => setFinalYear(e.target.value)}
             required
           />
+        </div>
+        <div>
+          <label htmlFor="password">Password : </label>
+          <input type="password" id="password" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
         </div>
         <div>
           <label htmlFor="numericRFID">Numeric RFID:</label>
