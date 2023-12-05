@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 const Login = () => {
   const [rfid, setRFID] = useState('');
@@ -8,20 +8,46 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Simulate a server request (replace this with your actual login API call)
     try {
-      // Check if RFID and password match in your server/database
-      // For now, let's assume a simple case where RFID is '123' and password is 'password'
-      if (rfid === '123' && password === 'password') {
-        console.log('Login successful!');
-        setError('');
-        // You can redirect to another page or perform other actions upon successful login
-      } else {
-        setError('Invalid RFID or password');
-      }
+      console.log(rfid);
+      console.log(password);
+
+      sendLogin();
+
     } catch (error) {
       console.error('Login error:', error.message);
       setError('An error occurred during login');
+    }
+  };
+
+  const sendLogin = async () => {
+
+    const credential = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        rfid: rfid,
+        password: password
+      })
+
+    }
+
+    await (await fetch("http://127.0.0.1:4437/api/crudoperations/Login_Details",credential)).json();
+  }
+  
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = ''; 
+    };
+  }, []);
+
+  const handleNumericRFIDChange = (e) => {
+    const input = e.target.value;
+    if (/^\d{0,10}$/.test(input)) {
+      setRFID(input);
     }
   };
 
@@ -37,7 +63,7 @@ const Login = () => {
               type="text"
               id="rfid"
               value={rfid}
-              onChange={(e) => setRFID(e.target.value)}
+              onChange={handleNumericRFIDChange}
               required
             />
           </div>
