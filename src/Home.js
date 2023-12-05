@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import campusImage from './images/campus.jpg';
 
@@ -21,3 +22,17 @@ const Home = () => {
 };
 
 export default Home;
+=======
+import React from 'react';
+
+const Home = () => {
+  return (
+    <div>
+      <h2>Home</h2>
+      <p>Welcome to the home page!</p>
+    </div>
+  );
+};
+
+export default Home;
+>>>>>>> 615d3f24881930491b6da80b834ca16a6556b355

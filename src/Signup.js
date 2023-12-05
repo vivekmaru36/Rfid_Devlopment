@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Signup.js
 import React, { useState } from 'react';
 
@@ -65,3 +66,17 @@ const Signup = () => {
 };
 
 export default Signup;
+=======
+import React from 'react';
+
+const Signup = () => {
+  return (
+    <div>
+      <h2>Signup</h2>
+      <p>Create a new account to get started.</p>
+    </div>
+  );
+};
+
+export default Signup;
+>>>>>>> 615d3f24881930491b6da80b834ca16a6556b355
